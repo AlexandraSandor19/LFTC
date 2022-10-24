@@ -7,11 +7,11 @@ declarationList::= declaration | declaration ';' declarationList
 arrayDeclaration::="var" identifier : collection'('type')'
 type::=integer|string|float|boolean
 
-cmpdStatement::= "{" statementList "}"
 statementList::= statement | statement ';' statementList
 statement::=simpleStatement | structStatement
 simpleStatement::=assignmentStatement | ioStatement
 structStatement::= cmpdStatement | ifStatement | forStatement | whileStatement
+cmpdStatement::= "{" statementList "}"
 
 ioStatement::= "read" "("identifier")" | "write" "("identifier | constant ")"
 assignmentStatement::= identifier "<-" expression
