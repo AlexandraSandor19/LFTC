@@ -1,0 +1,31 @@
+Sytactical rules:
+
+program::= '#' declarationList ';' statementList '#'
+
+declaration::="var" identifier : type
+declarationList::= declaration | declaration ';' declarationList
+arrayDeclaration::="var" identifier : collection'('type')'
+type::=integer|string|float|boolean
+
+statementList::= statement | statement ';' statementList
+statement::=simpleStatement | structStatement
+simpleStatement::=assignmentStatement | ioStatement
+structStatement::= cmpdStatement | ifStatement | forStatement | whileStatement
+cmpdStatement::= "{" statementList "}"
+
+ioStatement::= "read" "("identifier")" | "write" "("identifier | constant ")"
+assignmentStatement::= identifier "<-" expression
+expression::= expression ["+"|"-"] term | term
+term::= term ["*"|"/"] factor | factor
+factor::="("expression")" | identifier
+
+forStatement::= "forEach" forBody cmpdStatement
+forBody::= "(" assignmentStatement "," forCondition "," assignmentStatement ")"
+forCondition::= identifier "<" expression | identifier "<=" expression
+whileStatement::= "while" condition cmpdStatement
+ifStatement::= "cond" condition cmpdStatement ["else" cmpdStatement]
+
+condition::= "(" expression relation expression ")"
+relation::= "<" | "<=" | "=" | ">" | ">=" | "!="
+
+
