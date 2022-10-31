@@ -1,11 +1,8 @@
 import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.LinkedList;
 
 public class SymbolTable {
-    private HashTable identifierTable;
-    private HashTable constantTable;
+    private final HashTable identifierTable;
+    private final HashTable constantTable;
     private final int m;  // size of table
 
     public SymbolTable(int m) {

@@ -5,11 +5,11 @@ public class Main {
         int size = 5;
         var symbolTable = new SymbolTable(size);
 
-        int pi1 = symbolTable.addIdentifier("abc");
-        int pi2 = symbolTable.addIdentifier("variable");
-        int pi3 = symbolTable.addIdentifier("hello1");
-        int pc1 = symbolTable.addConstant("21");
-        int pc2 = symbolTable.addConstant("string");
+        symbolTable.addIdentifier("abc");
+        symbolTable.addIdentifier("variable");
+        symbolTable.addIdentifier("hello1");
+        symbolTable.addConstant("21");
+        symbolTable.addConstant("string");
 
         try {
             AbstractMap.SimpleImmutableEntry<Integer, Integer> pos1 = symbolTable.getPositionOfIdentifier("abc");
