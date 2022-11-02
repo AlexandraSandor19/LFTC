@@ -37,7 +37,7 @@ public class HashTable {
         return table.get(hashcode).contains(key);
     }
 
-    public int put(String key) {
+    public AbstractMap.SimpleEntry<Integer, Integer> put(String key) throws Exception {
         int hashcode = hash_function(key);
 
         // if the symbol does not exist in the table, it adds it to the linked list
@@ -45,16 +45,16 @@ public class HashTable {
             LinkedList<String> list = table.get(hashcode);
             list.add(key);
         }
-        return table.get(hashcode).indexOf(key);
+        return this.getPositionInTable(key);
     }
 
-    public AbstractMap.SimpleImmutableEntry<Integer, Integer> getPositionInTable(String key) throws Exception {
+    public AbstractMap.SimpleEntry<Integer, Integer> getPositionInTable(String key) throws Exception {
         if (!this.contains(key)) {
             throw new Exception("Key was not found in the hashtable!");
         }
         int arrayPosition = hash_function(key);
         int linkedListPosition = table.get(arrayPosition).indexOf(key);
-        return new AbstractMap.SimpleImmutableEntry<>(arrayPosition, linkedListPosition);
+        return new AbstractMap.SimpleEntry<>(arrayPosition, linkedListPosition);
     }
 
     @Override
