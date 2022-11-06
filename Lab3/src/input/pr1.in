@@ -1,0 +1,13 @@
+#
+  let n1 : integer;
+  let n2 : integer;
+  let n3 : integer;
+  read(n1);
+  read(n2);
+  read(n3);
+  let sum : integer;
+  let am : float;
+  sum <- n1 + n2 + n3;
+  am <- sum / 3;
+  return am;
+#

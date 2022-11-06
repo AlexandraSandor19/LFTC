@@ -1,0 +1,12 @@
+#
+  let n : integer;
+  let i : integer;
+  let sum : integer;
+  read(n);
+  forEach(i <- 1, i <- n, i <- i + 1) {
+    let num : integer;
+    read(num);
+    sum <- sum + num;
+  }
+  return sum;
+#
