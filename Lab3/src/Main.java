@@ -7,7 +7,7 @@ public class Main {
             if (scanner.getErrors().isEmpty()) {
                 System.out.println("Lexically correct!");
                 scanner.writeInSymbolTable();
-                scanner.writeInPIF();
+                scanner.getPIF().writeInPIF();
             }
             else {
                 scanner.getErrors().forEach(System.err::println);

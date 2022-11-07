@@ -55,15 +55,4 @@ public class HashTable {
         return new AbstractMap.SimpleEntry<>(arrayPosition, linkedListPosition);
     }
 
-//    @Override
-//    public String toString() {
-//        StringBuilder string = new StringBuilder();
-//        for (int i = 0; i < m; i++) {
-//            if (!this.table.get(i).isEmpty()) {
-//                this.table.get(i).forEach(string::append);
-//                string.append("\n");
-//            }
-//        }
-//        return string.toString();
-//    }
 }
