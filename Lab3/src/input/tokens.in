@@ -36,3 +36,5 @@ string
 float
 boolean
 collection
+True
+False

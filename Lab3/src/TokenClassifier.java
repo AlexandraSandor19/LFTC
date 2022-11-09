@@ -43,9 +43,9 @@ public class TokenClassifier {
     }
 
     public boolean isConstant(String constant) {
-        String integerConstRE = "(-*[1-9]+[0-9]*)|0";
-        String charConstRE = "\'[(a-zA-Z)|(0-9)]\'";
-        String stringConstRE = "\"[a-zA-Z0-9]+\"";
+        String integerConstRE = "(-?[1-9]+[0-9]*)|0";
+        String charConstRE = "\'[(a-zA-Z)|(0-9)!@#$%^&*()-_+=|`~.,;{}\\(\\)]\'";
+        String stringConstRE = "\"[a-zA-Z0-9!@#$%^&*()-_+=|`~.,;{}\\(\\)]+\"";
         return constant.matches(integerConstRE) || constant.matches(charConstRE) || constant.matches(stringConstRE);
     }
 

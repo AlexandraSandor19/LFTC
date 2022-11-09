@@ -43,12 +43,12 @@ public class Analyzer {
             else
             if (tokenClassifier.isIdentifier(token)) {
                 var position = identifierTable.addToken(token);
-                PIF.put(new AbstractMap.SimpleEntry<>(token, position));
+                PIF.put(new AbstractMap.SimpleEntry<>("id", position));
             }
             else
             if (tokenClassifier.isConstant(token)) {
                 var position = constantTable.addToken(token);
-                PIF.put(new AbstractMap.SimpleEntry<>(token, position));
+                PIF.put(new AbstractMap.SimpleEntry<>("const", position));
             }
             else {
                 var message = "Lexical Error at line: " + line + "\n   > unvalid token: " + token;
@@ -68,6 +68,8 @@ public class Analyzer {
             BufferedWriter out = new BufferedWriter(
                     new FileWriter("src/output/symtab.out", true));
             out.write("-----------------------------SYMBOL TABLE-----------------------------\n");
+            out.write("Data structure used for representation: Hash Table\n");
+            out.write("----------------------------------------------------------------------\n");
             out.write("> IDENTIFIERS\n");
             out.write(identifierTable.toString());
             out.write("\n> CONSTANTS\n");
