@@ -2,7 +2,11 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class Grammar {
@@ -13,6 +17,22 @@ public class Grammar {
 
     public Grammar() throws IOException {
         readGrammar();
+    }
+
+    public List<String> getNonTerminals() {
+        return nonTerminals;
+    }
+
+    public List<String> getTerminals() {
+        return terminals;
+    }
+
+    public String getStartSymbol() {
+        return startSymbol;
+    }
+
+    public List<Entry<String, List<List<String>>>> getProductions() {
+        return productions;
     }
 
     private void readGrammar() throws IOException {
@@ -26,12 +46,12 @@ public class Grammar {
             if (strLine.startsWith("V =")) {
                 var nonTerminalRead = strLine.replace("V = ", "");
                 nonTerminalRead = nonTerminalRead.replaceAll("[{}]", "");
-                nonTerminals = Arrays.stream(nonTerminalRead.split(",")).toList();
+                nonTerminals = Arrays.stream(nonTerminalRead.split(",")).collect(Collectors.toList());
             }
             if (strLine.startsWith("Sigma =")) {
                 var terminalRead = strLine.replace("Sigma = ", "");
                 terminalRead = terminalRead.replaceAll("[{}]", "");
-                terminals = Arrays.stream(terminalRead.split(",")).toList();
+                terminals = Arrays.stream(terminalRead.split(",")).collect(Collectors.toList());
             }
             if (strLine.startsWith("S =")) {
                 startSymbol = strLine.replace("S = ", "");
