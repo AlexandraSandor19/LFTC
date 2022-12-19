@@ -1,4 +1,4 @@
-N = {S}
+V = {S}
 Sigma = {a,b,c}
 S = S
 P = {
